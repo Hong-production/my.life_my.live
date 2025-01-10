@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        .main-header {
+            background: #282c34;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .main-header:hover {
+            background: #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #61dafb;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: slideInLeft 1.5s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image {
+            flex: 0 0 200px;
+            max-width: 200px;
+            animation: bounceIn 2s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #61dafb;
+            color: #282c34;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #21a1f1;
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        form input, form textarea, form button {
+            transition: transform 0.2s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            transform: scale(1.02);
+            outline: none;
+        }
+
+        form button:hover {
+            background: #21a1f1;
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .main-footer p {
+            margin: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 0;
+            background: #f4f2e7;
+            text-align: center;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: #fdf7cc;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .gallery-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .gallery-nav {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .gallery-nav a {
+            margin: 0 1rem;
+            color: #61dafb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .gallery-nav a:hover {
+            text-decoration: underline;
+        }
+		
+/* Button Styling */
+.btn-example {
+    display: inline-block;
+    background: #f4e789;
+    color: #282c34;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-example:hover {
+    background: #ffc352;
+    transform: translateY(-3px);
+}
+
+.btn-example:active {
+    transform: translateY(1px);
+}
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 0;
+            background: #334863;
+            color: #fff;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #3266a8;
+            color: #d2e6ff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #21a1f1;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success {
+            color: green;
+            font-size: 1rem;
+            display: none;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .main-footer p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Hong Production</h1>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+   <section id="home" class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Hi, I'm Hong</h2>
+                <p>I am here to share some of my portfolio!</p>
+            </div>
+            <div class="hero-image">
+                <img src="C:\Users\tqiho\Documents\GitHub\my.life_my.live\136A7010.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a freelance photographer who is also involved in various art-related projects, with a passion for capturing moments and attending meaningful exhibitions.</p>
+			<p>I specialise more in events, concerts and outdoor shoots. I love to record every precious moment because they mean the most to my clients.</p>
+			<p>These are some of the projects I've worked on before and hopefully will get you interested in working with me.</p>
+        </div>
+    </section>
+
+ <!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="container">
+        <h2>My Projects</h2>
+        <p>Here are some of the work that I have done before.</p>
+        <div class="project-list">
+            <div class="project-item">
+                <h3>Wedding Photography</h3>
+                <p>Check out some of the amazing weddings I have covered, capturing unforgettable moments.</p>
+                <a href="https://www.canva.com/design/DAF_syX5PLY/rAJxRBf_LIMX6crSK6n2Bw/view?utm_content=DAF_syX5PLY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h05ba2dedbe" target="_blank">
+                    <button class="btn-example">View Example</button>
+                </a>
+            </div>
+            <div class="project-item">
+                <h3>Concert Photography</h3>
+                <p>Explore my work in capturing the energy and emotion of live performances.</p>
+                <a href="https://www.canva.com/design/DAGbzlF8hGE/5bYaRNi5GXApDuU1yUKpNw/view?utm_content=DAGbzlF8hGE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h498add69fa" target="_blank">
+                    <button class="btn-example">View Example</button>
+                </a>
+            </div>
+            <div class="project-item">
+                <h3>Graduation Photography</h3>
+                <p>Discover graduations with stunning photos that showcase your success and excitement.</p>
+                <a href="https://www.canva.com/design/DAF0ZTcXlKI/BDN-EgAQWavjh8eHdvVguQ/view?utm_content=DAF0ZTcXlKI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h203c09a5b9" target="_blank">
+                    <button class="btn-example">View Example</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to collaborate, have any inquiries, or just want to say hi, feel free to reach out!</p>
+			<p> Wastapp: 011-39706064</p>
+			<p> Instagram: my.life_my.live</p>
+            <form id="contact-form" action="#" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <span class="error" id="name-error">Please enter your name.</span>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <span class="error" id="email-error">Please enter a valid email.</span>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                <span class="error" id="message-error">Please enter your message.</span>
+
+                <button type="submit">Send Message</button>
+                <p class="success" id="success-message">Thank you! Your message has been sent.</p>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Form Validation and Interactivity
+        const form = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const messageError = document.getElementById('message-error');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', function (event) {
+            let valid = true;
+
+            // Name validation
+            if (nameInput.value.trim() === '') {
+                nameError.style.display = 'block';
+                valid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.style.display = 'block';
+                valid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            // Message validation
+            if (messageInput.value.trim() === '') {
+                messageError.style.display = 'block';
+                valid = false;
+            } else {
+                messageError.style.display = 'none';
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            } else {
+                event.preventDefault();
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    form.reset();
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Hong. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
